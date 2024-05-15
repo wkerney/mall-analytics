@@ -39,7 +39,7 @@ SELECT EXTRACT(YEAR_MONTH FROM Registration_Date) AS registration_month,
 FROM Mall_Customers
 GROUP BY registration_month;
 
--- Calculate retention rate over subsequent (3) months
+-- Calculate retention rate over subsequent three months
 SELECT EXTRACT(YEAR_MONTH FROM Registration_Date) AS registration_month,
        COUNT(DISTINCT Customer_ID) AS total_customers,
        COUNT(DISTINCT CASE WHEN EXTRACT(YEAR_MONTH FROM Current_Date) = EXTRACT(YEAR_MONTH FROM Registration_Date) + INTERVAL 3 MONTH THEN Customer_ID END) AS retained_customers,
